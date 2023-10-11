@@ -32,6 +32,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1095D0C02AD6B5C400050076 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		1095D0C12AD6B5CC00050076 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				10D8A30B2AD46CB4008B91BE /* MagicCameraApp.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		1095D0C22AD6B5D300050076 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		1095D0C32AD6B5D800050076 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				10D8A30F2AD46CB6008B91BE /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		10D8A2FF2AD46CB4008B91BE = {
 			isa = PBXGroup;
 			children = (
@@ -51,9 +81,11 @@
 		10D8A30A2AD46CB4008B91BE /* MagicCamera */ = {
 			isa = PBXGroup;
 			children = (
-				10D8A30B2AD46CB4008B91BE /* MagicCameraApp.swift */,
+				1095D0C22AD6B5D300050076 /* Core */,
+				1095D0C12AD6B5CC00050076 /* Application */,
+				1095D0C02AD6B5C400050076 /* Features */,
+				1095D0C32AD6B5D800050076 /* Resources */,
 				10D8A30D2AD46CB4008B91BE /* ContentView.swift */,
-				10D8A30F2AD46CB6008B91BE /* Assets.xcassets */,
 				10D8A3112AD46CB6008B91BE /* Preview Content */,
 			);
 			path = MagicCamera;
