@@ -7,16 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10D8A30C2AD46CB4008B91BE /* MagicCameraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D8A30B2AD46CB4008B91BE /* MagicCameraApp.swift */; };
-		10D8A30E2AD46CB4008B91BE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D8A30D2AD46CB4008B91BE /* ContentView.swift */; };
+		103293892ADC5B5F009694B9 /* ViewFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103293882ADC5B5F009694B9 /* ViewFinder.swift */; };
+		1032938B2ADC5B75009694B9 /* ViewFinderCoordinatorEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032938A2ADC5B75009694B9 /* ViewFinderCoordinatorEvent.swift */; };
+		1032938D2ADC5B9B009694B9 /* ViewFinderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032938C2ADC5B9B009694B9 /* ViewFinderCoordinator.swift */; };
+		106156A52AE3F23C00AEAB3A /* Publisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106156A42AE3F23C00AEAB3A /* Publisher+Extension.swift */; };
+		1095D0C72AD6B99400050076 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1095D0C42AD6B99400050076 /* AppDelegate.swift */; };
+		1095D0C82AD6B99400050076 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1095D0C52AD6B99400050076 /* SceneDelegate.swift */; };
+		1095D0C92AD6B99400050076 /* AppDelegate+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1095D0C62AD6B99400050076 /* AppDelegate+Injection.swift */; };
+		1095D0CC2AD6BA4B00050076 /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 1095D0CB2AD6BA4B00050076 /* Resolver */; };
+		1095D0D92AD6BBBD00050076 /* ApplicationCoordinatorEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1095D0D42AD6BBBD00050076 /* ApplicationCoordinatorEvent.swift */; };
+		1095D0DA2AD6BBBD00050076 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1095D0D52AD6BBBD00050076 /* BaseCoordinator.swift */; };
+		1095D0DB2AD6BBBD00050076 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1095D0D62AD6BBBD00050076 /* ApplicationCoordinator.swift */; };
+		1095D0DC2AD6BBBD00050076 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1095D0D72AD6BBBD00050076 /* Coordinator.swift */; };
+		1095D0DD2AD6BBBD00050076 /* CoordinatorEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1095D0D82AD6BBBD00050076 /* CoordinatorEventHandler.swift */; };
 		10D8A3102AD46CB6008B91BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10D8A30F2AD46CB6008B91BE /* Assets.xcassets */; };
 		10D8A3132AD46CB6008B91BE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10D8A3122AD46CB6008B91BE /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		106156A72AE3F34900AEAB3A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		103293882ADC5B5F009694B9 /* ViewFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFinder.swift; sourceTree = "<group>"; };
+		1032938A2ADC5B75009694B9 /* ViewFinderCoordinatorEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFinderCoordinatorEvent.swift; sourceTree = "<group>"; };
+		1032938C2ADC5B9B009694B9 /* ViewFinderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFinderCoordinator.swift; sourceTree = "<group>"; };
+		106156A42AE3F23C00AEAB3A /* Publisher+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publisher+Extension.swift"; sourceTree = "<group>"; };
+		1095D0C42AD6B99400050076 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1095D0C52AD6B99400050076 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		1095D0C62AD6B99400050076 /* AppDelegate+Injection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Injection.swift"; sourceTree = "<group>"; };
+		1095D0D42AD6BBBD00050076 /* ApplicationCoordinatorEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinatorEvent.swift; sourceTree = "<group>"; };
+		1095D0D52AD6BBBD00050076 /* BaseCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		1095D0D62AD6BBBD00050076 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		1095D0D72AD6BBBD00050076 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		1095D0D82AD6BBBD00050076 /* CoordinatorEventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorEventHandler.swift; sourceTree = "<group>"; };
 		10D8A3082AD46CB4008B91BE /* MagicCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		10D8A30B2AD46CB4008B91BE /* MagicCameraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicCameraApp.swift; sourceTree = "<group>"; };
-		10D8A30D2AD46CB4008B91BE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		10D8A30F2AD46CB6008B91BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10D8A3122AD46CB6008B91BE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -26,15 +60,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1095D0CC2AD6BA4B00050076 /* Resolver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		103293872ADC5B2D009694B9 /* ViewFinder */ = {
+			isa = PBXGroup;
+			children = (
+				103293882ADC5B5F009694B9 /* ViewFinder.swift */,
+				1032938C2ADC5B9B009694B9 /* ViewFinderCoordinator.swift */,
+				1032938A2ADC5B75009694B9 /* ViewFinderCoordinatorEvent.swift */,
+			);
+			path = ViewFinder;
+			sourceTree = "<group>";
+		};
+		106156A32AE3F21E00AEAB3A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				106156A42AE3F23C00AEAB3A /* Publisher+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		1095D0C02AD6B5C400050076 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				103293872ADC5B2D009694B9 /* ViewFinder */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -42,7 +96,9 @@
 		1095D0C12AD6B5CC00050076 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				10D8A30B2AD46CB4008B91BE /* MagicCameraApp.swift */,
+				1095D0C42AD6B99400050076 /* AppDelegate.swift */,
+				1095D0C62AD6B99400050076 /* AppDelegate+Injection.swift */,
+				1095D0C52AD6B99400050076 /* SceneDelegate.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -50,6 +106,7 @@
 		1095D0C22AD6B5D300050076 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				1095D0D32AD6BBB100050076 /* Coordinator */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -60,6 +117,18 @@
 				10D8A30F2AD46CB6008B91BE /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		1095D0D32AD6BBB100050076 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				1095D0D62AD6BBBD00050076 /* ApplicationCoordinator.swift */,
+				1095D0D42AD6BBBD00050076 /* ApplicationCoordinatorEvent.swift */,
+				1095D0D52AD6BBBD00050076 /* BaseCoordinator.swift */,
+				1095D0D72AD6BBBD00050076 /* Coordinator.swift */,
+				1095D0D82AD6BBBD00050076 /* CoordinatorEventHandler.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		10D8A2FF2AD46CB4008B91BE = {
@@ -81,11 +150,11 @@
 		10D8A30A2AD46CB4008B91BE /* MagicCamera */ = {
 			isa = PBXGroup;
 			children = (
+				106156A32AE3F21E00AEAB3A /* Extensions */,
 				1095D0C22AD6B5D300050076 /* Core */,
 				1095D0C12AD6B5CC00050076 /* Application */,
 				1095D0C02AD6B5C400050076 /* Features */,
 				1095D0C32AD6B5D800050076 /* Resources */,
-				10D8A30D2AD46CB4008B91BE /* ContentView.swift */,
 				10D8A3112AD46CB6008B91BE /* Preview Content */,
 			);
 			path = MagicCamera;
@@ -109,12 +178,16 @@
 				10D8A3042AD46CB4008B91BE /* Sources */,
 				10D8A3052AD46CB4008B91BE /* Frameworks */,
 				10D8A3062AD46CB4008B91BE /* Resources */,
+				106156A72AE3F34900AEAB3A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = MagicCamera;
+			packageProductDependencies = (
+				1095D0CB2AD6BA4B00050076 /* Resolver */,
+			);
 			productName = MagicCamera;
 			productReference = 10D8A3082AD46CB4008B91BE /* MagicCamera.app */;
 			productType = "com.apple.product-type.application";
@@ -143,6 +216,9 @@
 				Base,
 			);
 			mainGroup = 10D8A2FF2AD46CB4008B91BE;
+			packageReferences = (
+				1095D0CA2AD6BA4B00050076 /* XCRemoteSwiftPackageReference "Resolver" */,
+			);
 			productRefGroup = 10D8A3092AD46CB4008B91BE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -169,8 +245,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10D8A30E2AD46CB4008B91BE /* ContentView.swift in Sources */,
-				10D8A30C2AD46CB4008B91BE /* MagicCameraApp.swift in Sources */,
+				1032938B2ADC5B75009694B9 /* ViewFinderCoordinatorEvent.swift in Sources */,
+				1095D0DC2AD6BBBD00050076 /* Coordinator.swift in Sources */,
+				1095D0D92AD6BBBD00050076 /* ApplicationCoordinatorEvent.swift in Sources */,
+				1095D0DA2AD6BBBD00050076 /* BaseCoordinator.swift in Sources */,
+				103293892ADC5B5F009694B9 /* ViewFinder.swift in Sources */,
+				1095D0C72AD6B99400050076 /* AppDelegate.swift in Sources */,
+				1095D0C82AD6B99400050076 /* SceneDelegate.swift in Sources */,
+				1095D0C92AD6B99400050076 /* AppDelegate+Injection.swift in Sources */,
+				1032938D2ADC5B9B009694B9 /* ViewFinderCoordinator.swift in Sources */,
+				1095D0DD2AD6BBBD00050076 /* CoordinatorEventHandler.swift in Sources */,
+				106156A52AE3F23C00AEAB3A /* Publisher+Extension.swift in Sources */,
+				1095D0DB2AD6BBBD00050076 /* ApplicationCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,11 +393,14 @@
 				DEVELOPMENT_TEAM = 3NRS47XA44;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = MagicCamera/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Magic Camera";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -319,9 +408,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = apoorvverma.MagicCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -336,11 +428,14 @@
 				DEVELOPMENT_TEAM = 3NRS47XA44;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = MagicCamera/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Magic Camera";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -348,9 +443,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = apoorvverma.MagicCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -376,6 +474,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1095D0CA2AD6BA4B00050076 /* XCRemoteSwiftPackageReference "Resolver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Resolver";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1095D0CB2AD6BA4B00050076 /* Resolver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1095D0CA2AD6BA4B00050076 /* XCRemoteSwiftPackageReference "Resolver" */;
+			productName = Resolver;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 10D8A3002AD46CB4008B91BE /* Project object */;
 }
