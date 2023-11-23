@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		101AF3A92AFA999B00A19AFF /* CameraAuhtProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101AF3A82AFA999B00A19AFF /* CameraAuhtProvider.swift */; };
 		103293892ADC5B5F009694B9 /* ViewFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103293882ADC5B5F009694B9 /* ViewFinder.swift */; };
 		1032938B2ADC5B75009694B9 /* ViewFinderCoordinatorEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032938A2ADC5B75009694B9 /* ViewFinderCoordinatorEvent.swift */; };
 		1032938D2ADC5B9B009694B9 /* ViewFinderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032938C2ADC5B9B009694B9 /* ViewFinderCoordinator.swift */; };
 		106156A52AE3F23C00AEAB3A /* Publisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106156A42AE3F23C00AEAB3A /* Publisher+Extension.swift */; };
+		106156AD2AE4018C00AEAB3A /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106156AC2AE4018C00AEAB3A /* CameraManager.swift */; };
 		1095D0C72AD6B99400050076 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1095D0C42AD6B99400050076 /* AppDelegate.swift */; };
 		1095D0C82AD6B99400050076 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1095D0C52AD6B99400050076 /* SceneDelegate.swift */; };
 		1095D0C92AD6B99400050076 /* AppDelegate+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1095D0C62AD6B99400050076 /* AppDelegate+Injection.swift */; };
@@ -38,10 +40,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		101AF3A82AFA999B00A19AFF /* CameraAuhtProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraAuhtProvider.swift; sourceTree = "<group>"; };
 		103293882ADC5B5F009694B9 /* ViewFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFinder.swift; sourceTree = "<group>"; };
 		1032938A2ADC5B75009694B9 /* ViewFinderCoordinatorEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFinderCoordinatorEvent.swift; sourceTree = "<group>"; };
 		1032938C2ADC5B9B009694B9 /* ViewFinderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFinderCoordinator.swift; sourceTree = "<group>"; };
+		103949202B0EE9F2003B319F /* MagicCamera.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MagicCamera.entitlements; sourceTree = "<group>"; };
 		106156A42AE3F23C00AEAB3A /* Publisher+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publisher+Extension.swift"; sourceTree = "<group>"; };
+		106156AC2AE4018C00AEAB3A /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		1095D0C42AD6B99400050076 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1095D0C52AD6B99400050076 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1095D0C62AD6B99400050076 /* AppDelegate+Injection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Injection.swift"; sourceTree = "<group>"; };
@@ -67,12 +72,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		101AF3A72AFA996A00A19AFF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				101AF3A82AFA999B00A19AFF /* CameraAuhtProvider.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		103293872ADC5B2D009694B9 /* ViewFinder */ = {
 			isa = PBXGroup;
 			children = (
-				103293882ADC5B5F009694B9 /* ViewFinder.swift */,
-				1032938C2ADC5B9B009694B9 /* ViewFinderCoordinator.swift */,
-				1032938A2ADC5B75009694B9 /* ViewFinderCoordinatorEvent.swift */,
+				10A2D0102AE6A6410054B47B /* View */,
+				10A2D0122AE6A65D0054B47B /* ViewModel */,
+				10A2D0112AE6A64C0054B47B /* Coordinator */,
 			);
 			path = ViewFinder;
 			sourceTree = "<group>";
@@ -83,6 +96,14 @@
 				106156A42AE3F23C00AEAB3A /* Publisher+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		106156AB2AE4017300AEAB3A /* CameraManager */ = {
+			isa = PBXGroup;
+			children = (
+				106156AC2AE4018C00AEAB3A /* CameraManager.swift */,
+			);
+			path = CameraManager;
 			sourceTree = "<group>";
 		};
 		1095D0C02AD6B5C400050076 /* Features */ = {
@@ -106,6 +127,8 @@
 		1095D0C22AD6B5D300050076 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				101AF3A72AFA996A00A19AFF /* Helpers */,
+				106156AB2AE4017300AEAB3A /* CameraManager */,
 				1095D0D32AD6BBB100050076 /* Coordinator */,
 			);
 			path = Core;
@@ -131,6 +154,30 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		10A2D0102AE6A6410054B47B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				103293882ADC5B5F009694B9 /* ViewFinder.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		10A2D0112AE6A64C0054B47B /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				1032938C2ADC5B9B009694B9 /* ViewFinderCoordinator.swift */,
+				1032938A2ADC5B75009694B9 /* ViewFinderCoordinatorEvent.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		10A2D0122AE6A65D0054B47B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		10D8A2FF2AD46CB4008B91BE = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +197,7 @@
 		10D8A30A2AD46CB4008B91BE /* MagicCamera */ = {
 			isa = PBXGroup;
 			children = (
+				103949202B0EE9F2003B319F /* MagicCamera.entitlements */,
 				106156A32AE3F21E00AEAB3A /* Extensions */,
 				1095D0C22AD6B5D300050076 /* Core */,
 				1095D0C12AD6B5CC00050076 /* Application */,
@@ -246,7 +294,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1032938B2ADC5B75009694B9 /* ViewFinderCoordinatorEvent.swift in Sources */,
+				106156AD2AE4018C00AEAB3A /* CameraManager.swift in Sources */,
 				1095D0DC2AD6BBBD00050076 /* Coordinator.swift in Sources */,
+				101AF3A92AFA999B00A19AFF /* CameraAuhtProvider.swift in Sources */,
 				1095D0D92AD6BBBD00050076 /* ApplicationCoordinatorEvent.swift in Sources */,
 				1095D0DA2AD6BBBD00050076 /* BaseCoordinator.swift in Sources */,
 				103293892ADC5B5F009694B9 /* ViewFinder.swift in Sources */,
@@ -387,6 +437,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MagicCamera/MagicCamera.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MagicCamera/Preview Content\"";
@@ -395,6 +446,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MagicCamera/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Magic Camera";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera access required for capturing photos";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone access reqiured for recording videos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
@@ -422,6 +475,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MagicCamera/MagicCamera.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MagicCamera/Preview Content\"";
@@ -430,6 +484,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MagicCamera/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Magic Camera";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera access required for capturing photos";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone access reqiured for recording videos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;

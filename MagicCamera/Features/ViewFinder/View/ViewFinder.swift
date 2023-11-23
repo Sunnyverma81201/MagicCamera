@@ -7,16 +7,20 @@
 
 import SwiftUI
 import Combine
+import AVFoundation
 import Resolver
 
 struct ViewFinder: View {
+    @EnvironmentObject var cameraManager: CameraManager
     var eventHandler = PassthroughSubject<ViewFinderCoordinatorEvent, Error>()
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("hello")
+        }
     }
 }
-
+      
 #Preview {
     ViewFinder()
 }
