@@ -17,31 +17,17 @@ extension Resolver: ResolverRegistering {
     
     private static func registerBasicServices() {
         register {
-            getCameraAuthorisationStatus()
-        }
+            CameraAuthProvider()
+        }.implements(CameraAuthProviderProtocol.self)
+            .scope(.application)
         
         register {
-            CameraManager(captureSession: resolve())
-        }.scope(.application)
-    }
-    
-    private static func getCameraAuthorisationStatus() {
-        var isAuthorized: Bool {
-            get async {
-                let status = AVCaptureDevice.authorizationStatus(for: .video)
-                
-                // Determine if the user previously authorized camera access.
-                var isAuthorized = status == .authorized
-                
-                // If the system hasn't determined the user's authorization status,
-                // explicitly prompt them for approval.
-                if status == .notDetermined {
-                    isAuthorized = await AVCaptureDevice.requestAccess(for: .video)
-                }
-                
-                return isAuthorized
-            }
-        }
+            createSessionManager(cameraAuthProvider: resolve())
+        }.scope(.cached)
+        
+        register {
+            CameraManager(captureSession: Resolver.optional())
+        }.scope(.cached)
     }
     
     private static func createSessionManager(cameraAuthProvider: CameraAuthProviderProtocol) -> AVCaptureSession? {
@@ -52,11 +38,7 @@ extension Resolver: ResolverRegistering {
                 debugPrint("[Camera_Authorization_Error]: User not authorized for camera access.")
                 return
             }
-            
-            // User is authorized, create the AVCaptureSession
             let captureSession = AVCaptureSession()
-            // Perform session configurations as needed
-            
             session = captureSession
         }
         

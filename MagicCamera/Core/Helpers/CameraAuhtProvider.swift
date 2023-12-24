@@ -15,18 +15,6 @@ protocol CameraAuthProviderProtocol {
 
 
 class CameraAuthProvider: CameraAuthProviderProtocol {
-    //MARK: - Properies
-    //MARK: - Initializer
-    init(completion: @escaping (AVCaptureSession?) -> Void) {
-        checkAuthorizationStatus { isAuthorized in
-            guard isAuthorized else {
-                completion(nil)
-                return
-            }
-            // Set up the capture session.
-            completion(AVCaptureSession())
-        }
-    }
     //MARK: - Helper functions
     ///Checks the permission for camera and porvides a bool value based on which we can proceed further
     ///- Returns: `@escaping`(Bool) -> Void

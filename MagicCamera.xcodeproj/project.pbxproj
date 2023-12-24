@@ -13,6 +13,7 @@
 		1032938D2ADC5B9B009694B9 /* ViewFinderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032938C2ADC5B9B009694B9 /* ViewFinderCoordinator.swift */; };
 		106156A52AE3F23C00AEAB3A /* Publisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106156A42AE3F23C00AEAB3A /* Publisher+Extension.swift */; };
 		106156AD2AE4018C00AEAB3A /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106156AC2AE4018C00AEAB3A /* CameraManager.swift */; };
+		1081999E2B2DA0CD0079C4EE /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1081999D2B2DA0CD0079C4EE /* PreviewView.swift */; };
 		1095D0C72AD6B99400050076 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1095D0C42AD6B99400050076 /* AppDelegate.swift */; };
 		1095D0C82AD6B99400050076 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1095D0C52AD6B99400050076 /* SceneDelegate.swift */; };
 		1095D0C92AD6B99400050076 /* AppDelegate+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1095D0C62AD6B99400050076 /* AppDelegate+Injection.swift */; };
@@ -24,6 +25,7 @@
 		1095D0DD2AD6BBBD00050076 /* CoordinatorEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1095D0D82AD6BBBD00050076 /* CoordinatorEventHandler.swift */; };
 		10D8A3102AD46CB6008B91BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10D8A30F2AD46CB6008B91BE /* Assets.xcassets */; };
 		10D8A3132AD46CB6008B91BE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10D8A3122AD46CB6008B91BE /* Preview Assets.xcassets */; };
+		10F0EA032B2D82B500208AD8 /* ViewFinderRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F0EA022B2D82B500208AD8 /* ViewFinderRepositoryProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +49,7 @@
 		103949202B0EE9F2003B319F /* MagicCamera.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MagicCamera.entitlements; sourceTree = "<group>"; };
 		106156A42AE3F23C00AEAB3A /* Publisher+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publisher+Extension.swift"; sourceTree = "<group>"; };
 		106156AC2AE4018C00AEAB3A /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
+		1081999D2B2DA0CD0079C4EE /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		1095D0C42AD6B99400050076 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1095D0C52AD6B99400050076 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1095D0C62AD6B99400050076 /* AppDelegate+Injection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Injection.swift"; sourceTree = "<group>"; };
@@ -58,6 +61,7 @@
 		10D8A3082AD46CB4008B91BE /* MagicCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10D8A30F2AD46CB6008B91BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10D8A3122AD46CB6008B91BE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		10F0EA022B2D82B500208AD8 /* ViewFinderRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFinderRepositoryProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,7 @@
 			children = (
 				10A2D0102AE6A6410054B47B /* View */,
 				10A2D0122AE6A65D0054B47B /* ViewModel */,
+				10F0EA012B2D828D00208AD8 /* Repository */,
 				10A2D0112AE6A64C0054B47B /* Coordinator */,
 			);
 			path = ViewFinder;
@@ -104,6 +109,14 @@
 				106156AC2AE4018C00AEAB3A /* CameraManager.swift */,
 			);
 			path = CameraManager;
+			sourceTree = "<group>";
+		};
+		1081999C2B2DA0B60079C4EE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1081999D2B2DA0CD0079C4EE /* PreviewView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		1095D0C02AD6B5C400050076 /* Features */ = {
@@ -130,6 +143,7 @@
 				101AF3A72AFA996A00A19AFF /* Helpers */,
 				106156AB2AE4017300AEAB3A /* CameraManager */,
 				1095D0D32AD6BBB100050076 /* Coordinator */,
+				1081999C2B2DA0B60079C4EE /* Views */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -198,10 +212,10 @@
 			isa = PBXGroup;
 			children = (
 				103949202B0EE9F2003B319F /* MagicCamera.entitlements */,
-				106156A32AE3F21E00AEAB3A /* Extensions */,
-				1095D0C22AD6B5D300050076 /* Core */,
 				1095D0C12AD6B5CC00050076 /* Application */,
+				1095D0C22AD6B5D300050076 /* Core */,
 				1095D0C02AD6B5C400050076 /* Features */,
+				106156A32AE3F21E00AEAB3A /* Extensions */,
 				1095D0C32AD6B5D800050076 /* Resources */,
 				10D8A3112AD46CB6008B91BE /* Preview Content */,
 			);
@@ -214,6 +228,14 @@
 				10D8A3122AD46CB6008B91BE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		10F0EA012B2D828D00208AD8 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				10F0EA022B2D82B500208AD8 /* ViewFinderRepositoryProtocol.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,7 +322,9 @@
 				1095D0D92AD6BBBD00050076 /* ApplicationCoordinatorEvent.swift in Sources */,
 				1095D0DA2AD6BBBD00050076 /* BaseCoordinator.swift in Sources */,
 				103293892ADC5B5F009694B9 /* ViewFinder.swift in Sources */,
+				10F0EA032B2D82B500208AD8 /* ViewFinderRepositoryProtocol.swift in Sources */,
 				1095D0C72AD6B99400050076 /* AppDelegate.swift in Sources */,
+				1081999E2B2DA0CD0079C4EE /* PreviewView.swift in Sources */,
 				1095D0C82AD6B99400050076 /* SceneDelegate.swift in Sources */,
 				1095D0C92AD6B99400050076 /* AppDelegate+Injection.swift in Sources */,
 				1032938D2ADC5B9B009694B9 /* ViewFinderCoordinator.swift in Sources */,
@@ -453,7 +477,7 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -491,7 +515,7 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

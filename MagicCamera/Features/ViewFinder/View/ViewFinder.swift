@@ -11,16 +11,40 @@ import AVFoundation
 import Resolver
 
 struct ViewFinder: View {
-    @EnvironmentObject var cameraManager: CameraManager
+    // MARK: - Properties
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @ObservedObject var cameraManager: CameraManager
     var eventHandler = PassthroughSubject<ViewFinderCoordinatorEvent, Error>()
     
+    // MARK: - Initializer
+    init(cameraManager: CameraManager) {
+        self.cameraManager = cameraManager
+    }
+    
+    // MARK: - Body
     var body: some View {
         VStack {
-            Text("hello")
+            Spacer()
+            PreviewView()
+                .ignoresSafeArea()
+            Spacer()
+            Button {
+                self.changeCamera()
+            } label: {
+                Image(systemName: "arrow.clockwise")
+                    .padding()
+                    .background(Material.thin)
+                    .clipShape(.circle)
+            }
         }
+    }
+    
+    // MARK: - Helper Function
+    func changeCamera() {
+        self.cameraManager.changeCamera(to: .builtInWideAngleCamera,position: .front)
     }
 }
       
 #Preview {
-    ViewFinder()
+    ViewFinder(cameraManager: CameraManager(captureSession: AVCaptureSession()))
 }
