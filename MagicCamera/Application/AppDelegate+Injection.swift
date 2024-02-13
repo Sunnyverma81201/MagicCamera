@@ -13,6 +13,7 @@ extension Resolver: ResolverRegistering {
     public static func registerAllServices() {
         //Start Registering services here
         registerBasicServices()
+        registerViewFinderServices()
     }
     
     private static func registerBasicServices() {
@@ -27,7 +28,22 @@ extension Resolver: ResolverRegistering {
         
         register {
             CameraManager(captureSession: Resolver.optional())
-        }.scope(.cached)
+        }.scope(.application)
+    }
+    
+    private static func registerViewFinderServices() {
+        register{
+            ViewFinderViewModel(repository: resolve())
+        }
+        
+        register {
+            ViewFinderDefaultRepository(localRepository: resolve())
+        }.implements(ViewFinderRepositoryProtocol.self)
+        
+        register {
+            ViewFinderLocalRepository(cameraManager: resolve())
+        }.implements(ViewFinderLocalRepositoryProtocol.self)
+        
     }
     
     private static func createSessionManager(cameraAuthProvider: CameraAuthProviderProtocol) -> AVCaptureSession? {

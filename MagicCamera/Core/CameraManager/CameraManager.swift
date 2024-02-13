@@ -12,7 +12,7 @@ class CameraManager: ObservableObject {
     
     /// Stores the session for the camera and the configuration
     private(set) var session: AVCaptureSession
-    private let sessionQueue = DispatchQueue(label: "captureQueue")
+    let sessionQueue = DispatchQueue(label: "sessionQueue",attributes: .concurrent)
     
     /// An array of available capture devices
     @Published var captureDevices: [AVCaptureDevice] = []
@@ -29,8 +29,10 @@ class CameraManager: ObservableObject {
     //MARK: - Initializer
     init(captureSession: AVCaptureSession?) {
         self.session = captureSession ?? AVCaptureSession()
-        self.setupCameraSession()
-        self.discoverCaptureDevices()
+        self.sessionQueue.sync {
+            self.discoverCaptureDevices()
+            self.setupCameraSession()
+        }
         self.startCaptureSession()
     }
     
@@ -38,13 +40,18 @@ class CameraManager: ObservableObject {
     ///Configures the capture session according to the variables provided by the user
     fileprivate func setupCameraSession() {
         self.session.beginConfiguration()
-        let videoDevice = AVCaptureDevice.default(self.currentDeviceType,for: .video, position: self.currentPosition)
-        guard let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice!),
-              self.session.canAddInput(videoDeviceInput)
-        else {
-            return
+        if let videoDevice = AVCaptureDevice.default(self.currentDeviceType,for: .video, position: self.currentPosition) {
+            guard let captureInput = try? AVCaptureDeviceInput(device: videoDevice),
+                  let captureOutput = try? AVCapturePhotoOutput(),
+                  self.session.canAddInput(captureInput),
+                  self.session.canAddOutput(captureOutput)
+            else {
+                return
+            }
+            self.session.sessionPreset = .photo
+            self.session.addInput(captureInput)
+            self.session.addOutput(captureOutput)
         }
-        self.session.addInput(videoDeviceInput)
         self.session.commitConfiguration()
     }
     
@@ -69,15 +76,32 @@ class CameraManager: ObservableObject {
         return AVCaptureVideoPreviewLayer(session: self.session)
     }
     
+    /// used to switch camera
+    /// - Parameters:
+    ///     - newDevice:``AVCaptureDevice.DeviceType``
+    ///     - position: representing the postition of device
     public func changeCamera(to newDevice: AVCaptureDevice.DeviceType, position: AVCaptureDevice.Position) {
         self.session.beginConfiguration()
-        self.session.removeInput(self.session.inputs.first!)
-        let videoDevice = AVCaptureDevice.default(newDevice, for: .video, position: position)
-        guard let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice!)
-        else {
-            return
+        if let currentInput = self.session.inputs.first {
+            self.session.removeInput(currentInput)
         }
-        self.session.addInput(videoDeviceInput)
+        
+        if let newCaptureDevice = AVCaptureDevice.default(newDevice, for: .video, position: position){
+            guard let captureInput = try? AVCaptureDeviceInput(device: newCaptureDevice) else { return }
+            self.session.addInput(captureInput)
+        }
         self.session.commitConfiguration()
+        self.currentDeviceType = newDevice
+        self.currentPosition = position
+    }
+    
+    /// used to get current capture device
+    public func getCurrentPosition() -> AVCaptureDevice.DeviceType {
+        return self.currentDeviceType
+    }
+    
+    /// used to get current camera position
+    public func getCurrentPosition() -> AVCaptureDevice.Position {
+        return self.currentPosition
     }
 }

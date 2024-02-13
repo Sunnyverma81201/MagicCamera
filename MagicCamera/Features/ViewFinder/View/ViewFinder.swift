@@ -13,38 +13,28 @@ import Resolver
 struct ViewFinder: View {
     // MARK: - Properties
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
-    @ObservedObject var cameraManager: CameraManager
+    @ObservedObject var viewModel: ViewFinderViewModel
     var eventHandler = PassthroughSubject<ViewFinderCoordinatorEvent, Error>()
     
     // MARK: - Initializer
-    init(cameraManager: CameraManager) {
-        self.cameraManager = cameraManager
+    init() {
+        self.viewModel = Resolver.resolve()
     }
     
     // MARK: - Body
     var body: some View {
         VStack {
-            Spacer()
-            PreviewView()
-                .ignoresSafeArea()
-            Spacer()
+            PreviewView(previewLayer: viewModel.getPreviewLayer())
+                .ignoresSafeArea(edges: .horizontal)
             Button {
-                self.changeCamera()
+                viewModel.changeCameraDirection()
             } label: {
-                Image(systemName: "arrow.clockwise")
+                Image(systemName: "arrow.triangle.2.circlepath")
                     .padding()
-                    .background(Material.thin)
                     .clipShape(.circle)
             }
         }
     }
     
-    // MARK: - Helper Function
-    func changeCamera() {
-        self.cameraManager.changeCamera(to: .builtInWideAngleCamera,position: .front)
-    }
-}
-      
-#Preview {
-    ViewFinder(cameraManager: CameraManager(captureSession: AVCaptureSession()))
+    
 }

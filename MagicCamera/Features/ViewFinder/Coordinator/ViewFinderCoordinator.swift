@@ -13,7 +13,7 @@ final class ViewFinderCoordinator: BaseCoordinator {
     private var subscriptions = Set<AnyCancellable>()
     
     override func start() {
-        let viewFinder = ViewFinder(cameraManager: Resolver.resolve())
+        let viewFinder = ViewFinder()
         
         viewFinder.eventHandler
             .mapToResult()
