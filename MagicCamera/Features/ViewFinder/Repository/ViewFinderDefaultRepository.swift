@@ -21,8 +21,23 @@ final class ViewFinderDefaultRepository: ViewFinderRepositoryProtocol {
         return localRepository.getCameraPreview()
     }
     
+    /// - Used to get current camera position
+    func getCurrentCameraPosition() -> AVCaptureDevice.Position {
+        return localRepository.getCurrentCameraPosition()
+    }
+    
+    /// - Used to get current camera position
+    func getCaptureDeviceList() -> [AVCaptureDevice] {
+        return localRepository.getCaptureDeviceList()
+    }
+    
     /// Used to change the camera direction
-    func changeCameraDirection() {
-        localRepository.changeCameraDirection()
+    func changeCamera(lens: AVCaptureDevice?) {
+        localRepository.changeCamera(lens: lens)
+    }
+    
+    /// - Capture image
+    func captureImage() {
+        localRepository.captureImage()
     }
 }

@@ -11,11 +11,15 @@ import AVFoundation
 final class ViewFinderViewModel: ObservableObject {
     // MARK: - Properties
     private var repository: ViewFinderRepositoryProtocol
+    @Published var currentPosition: AVCaptureDevice.Position = .back
+    @Published var devicesList = [AVCaptureDevice]()
     private var subscriptions = Set<AnyCancellable>()
     
     // MARK: - Initializer
     init(repository: ViewFinderRepositoryProtocol) {
         self.repository = repository
+        self.getCaptureDeviceList()
+        self.getCurrentCameraPosition()
     }
     
     // MARK: - Functions
@@ -24,8 +28,24 @@ final class ViewFinderViewModel: ObservableObject {
         return repository.getCameraPreview()
     }
     
+    
+    /// - Used to get current camera position
+    func getCurrentCameraPosition() {
+        self.currentPosition = repository.getCurrentCameraPosition()
+    }
+    
+    /// - Used to get current camera position
+    func getCaptureDeviceList() {
+        self.devicesList = repository.getCaptureDeviceList()
+    }
+    
     /// - Used to change the camera
-    func changeCameraDirection() {
-        repository.changeCameraDirection()
+    func changeCamera(lens: AVCaptureDevice?) {
+        repository.changeCamera(lens: lens)
+    }
+    
+    /// - Capture image
+    func captureImage() {
+        repository.captureImage()
     }
 }

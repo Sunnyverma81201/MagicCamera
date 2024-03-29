@@ -11,6 +11,7 @@
 		103293892ADC5B5F009694B9 /* ViewFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103293882ADC5B5F009694B9 /* ViewFinder.swift */; };
 		1032938B2ADC5B75009694B9 /* ViewFinderCoordinatorEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032938A2ADC5B75009694B9 /* ViewFinderCoordinatorEvent.swift */; };
 		1032938D2ADC5B9B009694B9 /* ViewFinderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032938C2ADC5B9B009694B9 /* ViewFinderCoordinator.swift */; };
+		103E0DE32B8B941E00FCDD44 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103E0DE22B8B941E00FCDD44 /* View+Extension.swift */; };
 		106156A52AE3F23C00AEAB3A /* Publisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106156A42AE3F23C00AEAB3A /* Publisher+Extension.swift */; };
 		106156AD2AE4018C00AEAB3A /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106156AC2AE4018C00AEAB3A /* CameraManager.swift */; };
 		1081999E2B2DA0CD0079C4EE /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1081999D2B2DA0CD0079C4EE /* PreviewView.swift */; };
@@ -29,6 +30,7 @@
 		10D8A3102AD46CB6008B91BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10D8A30F2AD46CB6008B91BE /* Assets.xcassets */; };
 		10D8A3132AD46CB6008B91BE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10D8A3122AD46CB6008B91BE /* Preview Assets.xcassets */; };
 		10E11BA12B5C06B700847E17 /* PreviewViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E11BA02B5C06B700847E17 /* PreviewViewCoordinator.swift */; };
+		10EF59CC2B8278BA00B6892F /* LensesSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EF59CB2B8278BA00B6892F /* LensesSelection.swift */; };
 		10F0EA032B2D82B500208AD8 /* ViewFinderRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F0EA022B2D82B500208AD8 /* ViewFinderRepositoryProtocol.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +53,7 @@
 		1032938A2ADC5B75009694B9 /* ViewFinderCoordinatorEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFinderCoordinatorEvent.swift; sourceTree = "<group>"; };
 		1032938C2ADC5B9B009694B9 /* ViewFinderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFinderCoordinator.swift; sourceTree = "<group>"; };
 		103949202B0EE9F2003B319F /* MagicCamera.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MagicCamera.entitlements; sourceTree = "<group>"; };
+		103E0DE22B8B941E00FCDD44 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		106156A42AE3F23C00AEAB3A /* Publisher+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publisher+Extension.swift"; sourceTree = "<group>"; };
 		106156AC2AE4018C00AEAB3A /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		1081999D2B2DA0CD0079C4EE /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
@@ -69,6 +72,7 @@
 		10D8A30F2AD46CB6008B91BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10D8A3122AD46CB6008B91BE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		10E11BA02B5C06B700847E17 /* PreviewViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewCoordinator.swift; sourceTree = "<group>"; };
+		10EF59CB2B8278BA00B6892F /* LensesSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensesSelection.swift; sourceTree = "<group>"; };
 		10F0EA022B2D82B500208AD8 /* ViewFinderRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFinderRepositoryProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				106156A42AE3F23C00AEAB3A /* Publisher+Extension.swift */,
+				103E0DE22B8B941E00FCDD44 /* View+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 		10A2D0102AE6A6410054B47B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				10EF59CA2B82788100B6892F /* UI Components */,
 				103293882ADC5B5F009694B9 /* ViewFinder.swift */,
 			);
 			path = View;
@@ -246,6 +252,14 @@
 				10E11BA02B5C06B700847E17 /* PreviewViewCoordinator.swift */,
 			);
 			path = PreviewView;
+			sourceTree = "<group>";
+		};
+		10EF59CA2B82788100B6892F /* UI Components */ = {
+			isa = PBXGroup;
+			children = (
+				10EF59CB2B8278BA00B6892F /* LensesSelection.swift */,
+			);
+			path = "UI Components";
 			sourceTree = "<group>";
 		};
 		10F0EA012B2D828D00208AD8 /* Repository */ = {
@@ -352,6 +366,8 @@
 				10B130E42B446F480036B173 /* ViewFinderDefaultRepository.swift in Sources */,
 				1032938D2ADC5B9B009694B9 /* ViewFinderCoordinator.swift in Sources */,
 				1095D0DD2AD6BBBD00050076 /* CoordinatorEventHandler.swift in Sources */,
+				10EF59CC2B8278BA00B6892F /* LensesSelection.swift in Sources */,
+				103E0DE32B8B941E00FCDD44 /* View+Extension.swift in Sources */,
 				106156A52AE3F23C00AEAB3A /* Publisher+Extension.swift in Sources */,
 				10B130E62B4470050036B173 /* ViewFinderLocalRepository.swift in Sources */,
 				1095D0DB2AD6BBBD00050076 /* ApplicationCoordinator.swift in Sources */,
@@ -496,10 +512,11 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Magic Camera";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera access required for capturing photos";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone access reqiured for recording videos";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Photos access is required to save captured photos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -512,6 +529,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -534,10 +552,11 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Magic Camera";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera access required for capturing photos";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone access reqiured for recording videos";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Photos access is required to save captured photos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -550,6 +569,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

@@ -11,7 +11,6 @@ struct PreviewView: UIViewRepresentable {
     // MARK: - Properties
     var previewLayer: AVCaptureVideoPreviewLayer
     let screen = UIScreen.main.bounds
-
     
     // MARK: - Initializer
     init(previewLayer: AVCaptureVideoPreviewLayer) {
@@ -29,8 +28,8 @@ struct PreviewView: UIViewRepresentable {
     }
     
     func makeUIView(context: Context) -> UIView {
-        let previewView = UIView(frame: UIScreen.main.bounds)
-        previewView.frame = CGRect(x: 0, y: 0, width: screen.size.width, height: screen.size.height)
+        let previewView = UIView()
+        previewView.bounds = previewLayer.frame
         previewView.layer.addSublayer(previewLayer)
         return previewView
     }

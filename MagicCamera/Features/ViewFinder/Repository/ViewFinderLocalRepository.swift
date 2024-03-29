@@ -24,12 +24,27 @@ final class ViewFinderLocalRepository: ViewFinderLocalRepositoryProtocol {
         return cameraManager.getPreviewLayer()
     }
     
+    /// - Used to get current camera position
+    func getCurrentCameraPosition() -> AVCaptureDevice.Position {
+        return cameraManager.getCurrentPosition()
+    }
+    
+    /// - Used to get current camera position
+    func getCaptureDeviceList() -> [AVCaptureDevice] {
+        return cameraManager.captureDevices
+    }
+    
     /// Used to change the camera direction
-    func changeCameraDirection() {
-        if cameraManager.getCurrentPosition() == .back {
-            cameraManager.changeCamera(to: .builtInWideAngleCamera, position: .front)
+    func changeCamera(lens: AVCaptureDevice?) {
+        if let lens = lens {
+            cameraManager.changeCamera(to: lens.deviceType, position: lens.position)
         } else {
-            cameraManager.changeCamera(to: .builtInWideAngleCamera, position: .back)
+            cameraManager.changeCamera(to: .builtInWideAngleCamera, position: cameraManager.getCurrentPosition() == .front ? .back : .front)
         }
+    }
+    
+    /// - Capture image
+    func captureImage() {
+        cameraManager.captureImage()
     }
 }
