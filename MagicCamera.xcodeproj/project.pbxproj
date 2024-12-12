@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		101AF3A92AFA999B00A19AFF /* CameraAuhtProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101AF3A82AFA999B00A19AFF /* CameraAuhtProvider.swift */; };
+		100DD3F22CFF748C00A90517 /* MediaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DD3F12CFF748C00A90517 /* MediaManager.swift */; };
 		103293892ADC5B5F009694B9 /* ViewFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103293882ADC5B5F009694B9 /* ViewFinder.swift */; };
 		1032938B2ADC5B75009694B9 /* ViewFinderCoordinatorEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032938A2ADC5B75009694B9 /* ViewFinderCoordinatorEvent.swift */; };
 		1032938D2ADC5B9B009694B9 /* ViewFinderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032938C2ADC5B9B009694B9 /* ViewFinderCoordinator.swift */; };
@@ -48,7 +48,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		101AF3A82AFA999B00A19AFF /* CameraAuhtProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraAuhtProvider.swift; sourceTree = "<group>"; };
+		100DD3F12CFF748C00A90517 /* MediaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaManager.swift; sourceTree = "<group>"; };
 		103293882ADC5B5F009694B9 /* ViewFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFinder.swift; sourceTree = "<group>"; };
 		1032938A2ADC5B75009694B9 /* ViewFinderCoordinatorEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFinderCoordinatorEvent.swift; sourceTree = "<group>"; };
 		1032938C2ADC5B9B009694B9 /* ViewFinderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFinderCoordinator.swift; sourceTree = "<group>"; };
@@ -91,7 +91,6 @@
 		101AF3A72AFA996A00A19AFF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				101AF3A82AFA999B00A19AFF /* CameraAuhtProvider.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -119,6 +118,7 @@
 		106156AB2AE4017300AEAB3A /* CameraManager */ = {
 			isa = PBXGroup;
 			children = (
+				100DD3F12CFF748C00A90517 /* MediaManager.swift */,
 				106156AC2AE4018C00AEAB3A /* CameraManager.swift */,
 			);
 			path = CameraManager;
@@ -352,7 +352,6 @@
 				1032938B2ADC5B75009694B9 /* ViewFinderCoordinatorEvent.swift in Sources */,
 				106156AD2AE4018C00AEAB3A /* CameraManager.swift in Sources */,
 				1095D0DC2AD6BBBD00050076 /* Coordinator.swift in Sources */,
-				101AF3A92AFA999B00A19AFF /* CameraAuhtProvider.swift in Sources */,
 				1095D0D92AD6BBBD00050076 /* ApplicationCoordinatorEvent.swift in Sources */,
 				1095D0DA2AD6BBBD00050076 /* BaseCoordinator.swift in Sources */,
 				103293892ADC5B5F009694B9 /* ViewFinder.swift in Sources */,
@@ -360,6 +359,7 @@
 				1095D0C72AD6B99400050076 /* AppDelegate.swift in Sources */,
 				1081999E2B2DA0CD0079C4EE /* PreviewView.swift in Sources */,
 				1095D0C82AD6B99400050076 /* SceneDelegate.swift in Sources */,
+				100DD3F22CFF748C00A90517 /* MediaManager.swift in Sources */,
 				10B130E82B4474310036B173 /* ViewFinderViewModel.swift in Sources */,
 				10E11BA12B5C06B700847E17 /* PreviewViewCoordinator.swift in Sources */,
 				1095D0C92AD6B99400050076 /* AppDelegate+Injection.swift in Sources */,

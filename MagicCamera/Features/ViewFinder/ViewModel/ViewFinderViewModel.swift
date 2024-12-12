@@ -25,27 +25,32 @@ final class ViewFinderViewModel: ObservableObject {
     // MARK: - Functions
     /// - returns: previewLayer
     func getPreviewLayer() -> AVCaptureVideoPreviewLayer {
-        return repository.getCameraPreview()
+        CameraManager.shared.getPreviewLayer()
     }
     
     
     /// - Used to get current camera position
     func getCurrentCameraPosition() {
-        self.currentPosition = repository.getCurrentCameraPosition()
+        self.currentPosition = CameraManager.shared.getCurrentPosition()
     }
     
     /// - Used to get current camera position
     func getCaptureDeviceList() {
-        self.devicesList = repository.getCaptureDeviceList()
+        self.devicesList = CameraManager.shared.captureDevices
     }
     
     /// - Used to change the camera
     func changeCamera(lens: AVCaptureDevice?) {
-        repository.changeCamera(lens: lens)
+        if let lens = lens {
+            CameraManager.shared.changeCamera(to: lens.deviceType, position: lens.position)
+        } else {
+            CameraManager.shared.changeCamera(to: .builtInWideAngleCamera,
+                                              position: CameraManager.shared.getCurrentPosition() == .front ? .back : .front)
+        }
     }
     
     /// - Capture image
     func captureImage() {
-        repository.captureImage()
+        CameraManager.shared.captureImage()
     }
 }

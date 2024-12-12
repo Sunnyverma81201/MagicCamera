@@ -20,7 +20,7 @@ struct ViewFinder: View {
     init() {
         self.viewModel = Resolver.resolve()
     }
-    
+        
     // MARK: - Body
     var body: some View {
         VStack {

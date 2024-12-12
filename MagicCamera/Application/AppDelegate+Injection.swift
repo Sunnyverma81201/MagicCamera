@@ -17,18 +17,7 @@ extension Resolver: ResolverRegistering {
     }
     
     private static func registerBasicServices() {
-        register {
-            CameraAuthProvider()
-        }.implements(CameraAuthProviderProtocol.self)
-            .scope(.application)
-        
-        register {
-            createSessionManager(cameraAuthProvider: resolve())
-        }.scope(.cached)
-        
-        register {
-            CameraManager(captureSession: Resolver.optional())
-        }.scope(.application)
+
     }
     
     private static func registerViewFinderServices() {
@@ -41,23 +30,10 @@ extension Resolver: ResolverRegistering {
         }.implements(ViewFinderRepositoryProtocol.self)
         
         register {
-            ViewFinderLocalRepository(cameraManager: resolve())
+            ViewFinderLocalRepository(cameraManager: CameraManager.shared)
         }.implements(ViewFinderLocalRepositoryProtocol.self)
         
     }
     
-    private static func createSessionManager(cameraAuthProvider: CameraAuthProviderProtocol) -> AVCaptureSession? {
-        var session: AVCaptureSession?
-        
-        cameraAuthProvider.checkAuthorizationStatus { isAuthorized in
-            guard isAuthorized else {
-                debugPrint("[Camera_Authorization_Error]: User not authorized for camera access.")
-                return
-            }
-            let captureSession = AVCaptureSession()
-            session = captureSession
-        }
-        
-        return session
-    }
+    
 }

@@ -8,40 +8,73 @@ import AVFoundation
 import SwiftUI
 import Photos
 
-class CameraManager: NSObject, ObservableObject {
+final class CameraManager {
     //MARK: - Properties
+    static let shared: CameraManager = .init()
     
     /// Stores the session for the camera and the configuration
-    private(set) var session: AVCaptureSession
+    private(set) var session: AVCaptureSession = AVCaptureSession()
 
     /// An array of available capture devices
-    @Published var captureDevices: [AVCaptureDevice] = []
+    var captureDevices: [AVCaptureDevice] = []
     
     /// Flag to identify if camera intractions are allowed or not; i.e. camera is in configuration mode
-    @Published var isUserInteractionEnabled = false
+    var isUserInteractionEnabled = false
 
     /// Camera configurations
     private var currentDeviceType: AVCaptureDevice.DeviceType = .builtInWideAngleCamera
     private var currentPosition: AVCaptureDevice.Position = .back
 
-    let sessionQueue = DispatchQueue(label: "sessionQueue",attributes: .concurrent)
+    @preconcurrency let sessionQueue = DispatchQueue(label: "sessionQueue",qos: .userInitiated)
     
     /// Photo Output
     let photoOutput = AVCapturePhotoOutput()
     
-    var photoData: Data?
+    /// Media Manager
+    let mediaManager = MediaManager.shared
     
     /// Stores the selected camera to start the capture session
     //MARK: - Initializer
-    init(captureSession: AVCaptureSession?) {
-        self.session = captureSession ?? AVCaptureSession()
-        super.init()
+    private init() {
+        guard let session = CameraManager.createSessionManager() else { return }
+        self.session = session
         self.sessionQueue.sync {
             self.discoverCaptureDevices()
             self.setupCameraSession()
         }
         self.startCaptureSession()
     }
+    
+    internal static func checkAuthorizationStatus(completion: @escaping (Bool) -> Void) {
+        let status = AVCaptureDevice.authorizationStatus(for: .video)
+        
+        switch status {
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: .video) { isAuthorized in
+                completion(isAuthorized)
+            }
+        case .authorized:
+            completion(true)
+        default:
+            completion(false)
+        }
+    }
+    
+    private static func createSessionManager() -> AVCaptureSession? {
+        var session: AVCaptureSession?
+        
+        self.checkAuthorizationStatus { isAuthorized in
+            guard isAuthorized else {
+                debugPrint("[Camera_Authorization_Error]: User not authorized for camera access.")
+                return
+            }
+            let captureSession = AVCaptureSession()
+            session = captureSession
+        }
+        
+        return session
+    }
+    
     
     //MARK: - Functions
     ///Configures the capture session according to the variables provided by the user
@@ -114,8 +147,9 @@ class CameraManager: NSObject, ObservableObject {
     
     
     private func getPhotoSettings() -> AVCapturePhotoSettings {
-        guard let rawType = photoOutput.availableRawPhotoPixelFormatTypes.first else { return AVCapturePhotoSettings() }
-        var photoSettings = AVCapturePhotoSettings(rawPixelFormatType: rawType)
+        guard let rawType = photoOutput.availableRawPhotoPixelFormatTypes.last else { return AVCapturePhotoSettings() }
+        print(photoOutput.availableRawPhotoPixelFormatTypes)
+        let photoSettings = AVCapturePhotoSettings(rawPixelFormatType: rawType, processedFormat: nil)
         
         return photoSettings
     }
@@ -135,7 +169,7 @@ class CameraManager: NSObject, ObservableObject {
             case .sessionNotRunning:
                 debugPrint("Session Not Running")
             case .ready:
-                self.photoOutput.capturePhoto(with: getPhotoSettings(), delegate: self)
+                self.photoOutput.capturePhoto(with: getPhotoSettings(), delegate: MediaManager.shared)
             case .notReadyMomentarily:
                 debugPrint("notReadyMomentarily")
             case .notReadyWaitingForCapture:
@@ -145,8 +179,6 @@ class CameraManager: NSObject, ObservableObject {
             @unknown default:
                 debugPrint("Unknown Error Occoured")
             }
-        } else {
-            print(photoOutput.availableRawPhotoFileTypes)
         }
         
         self.session.commitConfiguration()
@@ -154,48 +186,4 @@ class CameraManager: NSObject, ObservableObject {
             self.session.startRunning()
         }
     }
-}
-
-extension CameraManager: AVCapturePhotoCaptureDelegate {
-    
-    func photoOutput(_ output: AVCapturePhotoOutput, willCapturePhotoFor resolvedSettings: AVCaptureResolvedPhotoSettings) {
-    }
-    
-    
-    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        if let error = error {
-            print("Error capturing photo: \(error)")
-        } else {
-            photoData = photo.fileDataRepresentation()
-        }
-    }
-    
-    func photoOutput(_ output: AVCapturePhotoOutput, didFinishCaptureFor resolvedSettings: AVCaptureResolvedPhotoSettings, error: Error?) {
-        UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
-        if let error = error {
-            print("Error capturing photo: \(error)")
-            return
-        }
-        
-        guard let photoData = photoData else {
-            print("Error capturing photo")
-            return
-        }
-        
-        PHPhotoLibrary.requestAuthorization { status in
-            if status == .authorized {
-                PHPhotoLibrary.shared().performChanges({
-                    let options = PHAssetResourceCreationOptions()
-                    let creationRequest = PHAssetCreationRequest.forAsset()
-                    creationRequest.addResource(with: .photo, data: photoData, options: options)
-                    
-                }, completionHandler: { _, error in
-                    if let error = error {
-                        print("Error occurred while saving photo to photo library: \(error)")
-                    }
-                })
-            }
-        }
-    }
-    
 }
